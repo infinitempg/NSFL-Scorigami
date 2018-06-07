@@ -25,7 +25,7 @@ for n in scorelist:
 
 plt.figure(figsize=(32,18))
 plt.rc('font', size=18)
-plt.title('NSFL Scorigami through S8W4 (Gradient)')
+plt.title('NSFL Scorigami (S8W4)')
 plt.xlabel('Winner Score')
 plt.ylabel('Loser Score')
 plt.yticks(range(0,35,1))
@@ -47,7 +47,7 @@ for n in scores_nodup:
     
 plt.figure(figsize=(32,18))
 plt.rc('font', size=18)
-plt.title('NSFL Scorigami through S8W4')
+plt.title('NSFL Scorigami (S8W4)')
 plt.xlabel('Winner Score')
 plt.ylabel('Loser Score')
 plt.yticks(range(0,35,1))
