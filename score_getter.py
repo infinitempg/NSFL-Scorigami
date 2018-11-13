@@ -1,33 +1,32 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun  6 20:57:43 2018
-
-@author: mike
-"""
 
 from bs4 import BeautifulSoup
 import requests
-        
+
 def get_season(num):
-    url = "http://www.nsfl.wtgbear.com/NSFLS"+str(num)+"/GameResults.html"
+    print('Season',num)
+    if num < 10:
+        strnum = '0'+str(num)
+    elif num >= 10:
+        strnum = str(num)
+    url = "http://sim-football.com/indexes/NSFLS"+strnum+"/GameResults.html"
     page = requests.get(url)
-    
+
     soup = BeautifulSoup(page.text,'html.parser')
-    
+
     test = soup.find_all('tr')[145:]
-    
+
     sresults = []
-    
+
     n = 0
     w = 0
-    
+
     try:
         while n + 1 <= len(test):
             team1 = test[n].find_all('td')
             team1list = []
             for item in team1:
                 team1list.append(item.get_text())
-            
+
             team2 = test[n+1].find_all('td')
             team2list = []
             for item in team2:
@@ -48,6 +47,7 @@ def get_season(num):
         pass
     return sresults
 
+s9 = get_season(9)
 s8 = get_season(8)
 s7 = get_season(7)
 s6 = get_season(6)
@@ -55,9 +55,10 @@ s5 = get_season(5)
 s4 = get_season(4)
 s3 = get_season(3)
 
-### GETTING SEASON 2 BECAUSE WHY
+## GETTING SEASON 2 BECAUSE WHY
 
-url = "http://www.nsfl.wtgbear.com/NSFLS2/GameResults.html"
+print('Season 2')
+url = "http://sim-football.com/indexes/NSFLS02/GameResults.html"
 page = requests.get(url)
 
 soup = BeautifulSoup(page.text,'html.parser')
@@ -74,7 +75,7 @@ while n + 1 <= 303:
     team1list = []
     for item in team1:
         team1list.append(item.get_text())
-    
+
     team2 = test[n+1].find_all('td')
     team2list = []
     for item in team2:
@@ -98,7 +99,7 @@ while n + 1 <= len(test):
     team1list = []
     for item in team1:
         team1list.append(item.get_text())
-    
+
     team2 = test[n+1].find_all('td')
     team2list = []
     for item in team2:
@@ -122,7 +123,7 @@ while n + 1 <= len(test):
     team1list = []
     for item in team1:
         team1list.append(item.get_text())
-    
+
     team2 = test[n+1].find_all('td')
     team2list = []
     for item in team2:
@@ -139,14 +140,14 @@ while n + 1 <= len(test):
     if w == 2:
         break
 
-n = 492  
+n = 492
 w = 0
 while n + 1 <= len(test):
     team1 = test[n].find_all('td')
     team1list = []
     for item in team1:
         team1list.append(item.get_text())
-    
+
     team2 = test[n+1].find_all('td')
     team2list = []
     for item in team2:
@@ -162,13 +163,14 @@ while n + 1 <= len(test):
         n += 1
     if w == 19:
         break
-    
+
 s2 = sresults
 sresults = []
 
 ### SEASON ONE
 
-url = "http://www.nsfl.wtgbear.com/NSFLS1/GameResults.html"
+print("Season 1")
+url = "http://sim-football.com/indexes/NSFLS01/GameResults.html"
 page = requests.get(url)
 
 soup = BeautifulSoup(page.text,'html.parser')
@@ -185,7 +187,7 @@ while n + 1 <= len(test):
     team1list = []
     for item in team1:
         team1list.append(item.get_text())
-    
+
     team2 = test[n+1].find_all('td')
     team2list = []
     for item in team2:
@@ -203,7 +205,7 @@ while n + 1 <= len(test):
         k = 0
     if w == 56:
         n += 1
-        
+
 s1 = sresults
 sresults = []
 
