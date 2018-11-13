@@ -2,6 +2,14 @@
 from bs4 import BeautifulSoup
 import requests
 
+"""
+THINGS TO DO:
+ - make it all one function (that way I can merge the files)
+    - just use an if or something lol
+ - make it collect more information for a json file
+    - can still split off for the normal txt file as well (but if in one file won't need to)
+"""
+
 def get_season(num):
     print('Season',num)
     if num < 10:
